@@ -11,6 +11,8 @@ import IconButton from 'material-ui/IconButton'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
 import Dialog from 'material-ui/Dialog'
 import TextField from 'material-ui/TextField'
+import NavigationClose from 'material-ui/svg-icons/navigation/close'
+import RemoveRedEye from 'material-ui/svg-icons/image/remove-red-eye';
 
 class NavBar extends Component {
 
@@ -44,7 +46,7 @@ class NavBar extends Component {
 
   logout = () => {
     this.setState({
-      isLogin:false
+      isLogin: false
     })
   }
 
@@ -103,7 +105,15 @@ class NavBar extends Component {
           docked={false}
           onRequestChange={(open) => this.setState({drawerOpened: open})}
         >
-          <MenuItem>博文</MenuItem>
+          <AppBar
+            title="导航"
+            iconElementLeft={
+              <IconButton onTouchTap={()=>{this.setState({drawerOpened:false})}}
+              ><NavigationClose />
+              </IconButton>
+            }
+          />
+          <MenuItem leftIcon={<RemoveRedEye />}>博文</MenuItem>
           <MenuItem>小酒馆</MenuItem>
         </Drawer>
         <Dialog
