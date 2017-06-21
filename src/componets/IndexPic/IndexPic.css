@@ -1,0 +1,11 @@
+.index-pic {
+
+    background: url(http://p1.bqimg.com/567571/36610bce391f91a4.jpg) no-repeat center 0;
+    -webkit-background-size: cover;
+    background-size: cover;
+    padding: 138px 0 0;
+    text-align: center;
+    min-height: 600px;
+    position: relative;
+
+}
