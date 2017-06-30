@@ -1,0 +1,33 @@
+body {
+    background-color:#e4f4fc;
+}
+.wrapper {
+    padding-top: 20px;
+}
+
+.card-container {
+    margin: 8px;
+}
+
+.date-header {
+    font-size: 19px;
+}
+
+.sub-card-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .card-container {
+        margin: 0px;
+    }
+    .sub-card-container {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .wrapper {
+        padding-top: 20px;
+    }
+}

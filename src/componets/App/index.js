@@ -1,26 +1,25 @@
 import React, {Component} from 'react';
-import './App.css';
+import './index.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import NavBar from "./componets/NavBar";
-import {lightBlue300
-} from 'material-ui/styles/colors';
+import {lightBlue300} from 'material-ui/styles/colors';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import IndexPic from './componets/IndexPic/IndexPic';
+import NavBar from '../NavBar/index'
+import IndexPic from '../IndexPic/index'
+
 
 
 class App extends Component {
   render() {
     const muiTheme = getMuiTheme({
       palette: {
-        primary1Color: lightBlue300
-        ,
+        primary1Color: lightBlue300,
       },
     });
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div>
           <NavBar/>
-          <IndexPic/>
+          {this.props.children||<IndexPic/>}
         </div>
       </MuiThemeProvider>
     )

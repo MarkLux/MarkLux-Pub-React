@@ -1,0 +1,15 @@
+.posts-wrapper {
+    margin-top: 8px;
+    padding-top:20px;
+}
+
+.post-container {
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+
+    .left-nav {
+        display: none;
+    }
+}

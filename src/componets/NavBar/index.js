@@ -12,7 +12,17 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
 import Dialog from 'material-ui/Dialog'
 import TextField from 'material-ui/TextField'
 import NavigationClose from 'material-ui/svg-icons/navigation/close'
-import RemoveRedEye from 'material-ui/svg-icons/image/remove-red-eye';
+import Description from 'material-ui/svg-icons/action/description';
+import AccountBox from 'material-ui/svg-icons/action/account-box';
+import Input from 'material-ui/svg-icons/action/input';
+import Settings from 'material-ui/svg-icons/action/settings';
+import UserGroup from 'material-ui/svg-icons/social/group-add';
+import BookMark from 'material-ui/svg-icons/action/bookmark';
+import Pub from 'material-ui/svg-icons/places/free-breakfast';
+import Calendar from 'material-ui/svg-icons/action/today';
+import ArrowDropRight from 'material-ui/svg-icons/navigation-arrow-drop-right';
+import {Card, CardActions,CardMedia, CardTitle} from 'material-ui/Card'
+import goTo from '../../utils/goTo';
 
 class NavBar extends Component {
 
@@ -68,10 +78,18 @@ class NavBar extends Component {
             targetOrigin={{horizontal: 'right', vertical: 'top'}}
             anchorOrigin={{horizontal: 'right', vertical: 'top'}}
           >
-            <MenuItem primaryText="个人资料" />
             <MenuItem
+              leftIcon = {<AccountBox/>}
+              primaryText="个人资料"
+            />
+            <MenuItem
+              leftIcon = {<Input/>}
               primaryText="登出"
               onTouchTap={this.logout}
+            />
+            <MenuItem
+              leftIcon={<Settings/>}
+              primaryText="管理"
             />
           </IconMenu>
         )
@@ -98,6 +116,7 @@ class NavBar extends Component {
         <AppBar
           title="MarkLux | Pub"
           onLeftIconButtonTouchTap={this.onLeftIconButtonTouchTap}
+          onTitleTouchTap = {()=>{goTo('/')}}
           iconElementRight={RightIcon()}
         />
         <Drawer
@@ -113,8 +132,61 @@ class NavBar extends Component {
               </IconButton>
             }
           />
-          <MenuItem leftIcon={<RemoveRedEye />}>博文</MenuItem>
-          <MenuItem>小酒馆</MenuItem>
+          <Card>
+            <CardMedia
+              overlay={<CardTitle title="Mark Lux" subtitle="亦是行人" />}
+            >
+              <img src="http://of1deuret.bkt.clouddn.com/17-6-21/88975568.jpg" alt="" />
+            </CardMedia>
+            <CardActions>
+              <FlatButton
+                label="GITHUB"
+                target="_blank"
+                href="https://github.com/MarkLux"
+                icon={<i className="fa fa-github" aria-hidden="true" />}
+              />
+              <FlatButton
+                label="WEIBO"
+                target="_blank"
+                href="http://www.weibo.com/u/5921933780/"
+                icon={<i className="fa fa-weibo" aria-hidden="true"/>}
+              />
+            </CardActions>
+          </Card>
+          <MenuItem
+            primaryText="博文"
+            leftIcon={<Description />}
+            rightIcon={<ArrowDropRight />}
+            menuItems={[
+              <MenuItem primaryText="技术"/>,
+              <MenuItem primaryText="生活"/>
+            ]}
+            onTouchTap={()=>{goTo('/old-calendar');this.setState({drawerOpened:false})}}
+          />
+          <MenuItem
+            primaryText="归档"
+            leftIcon={<BookMark/>}
+          />
+          <MenuItem
+            primaryText="小酒馆"
+            leftIcon={<Pub/>}
+          />
+          <MenuItem
+            primaryText="老黄历"
+            leftIcon={<Calendar/>}
+            onTouchTap={()=>{goTo('/old-calendar');this.setState({drawerOpened:false})}}
+          />
+          <MenuItem
+            primaryText="友情链接"
+            leftIcon={<UserGroup />}
+            rightIcon={<ArrowDropRight />}
+            menuItems={[
+              <MenuItem primaryText="OutXu"/>,
+              <MenuItem primaryText="Yz"/>,
+              <MenuItem primaryText="Abtion"/>,
+              <MenuItem primaryText="Hotown"/>,
+            ]}
+          />
         </Drawer>
         <Dialog
           title="Login"

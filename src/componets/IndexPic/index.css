@@ -1,0 +1,32 @@
+.index-pic {
+    background: url(http://p1.bqimg.com/567571/36610bce391f91a4.jpg) no-repeat center 0;
+    -webkit-background-size: cover;
+    background-size: cover;
+    text-align: center;
+    display: flex;
+    color: #fff;
+    height: 100vh;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.index-title {
+    font-family: "Roboto Mono",serif;
+    font-size: 64px;
+    font-weight: 100;
+    word-spacing: 6px;
+}
+.index-subtitle {
+    font-size: 34px;
+    font-weight:100;
+}
+
+@media screen and (max-width: 768px) {
+    .index-title {
+        font-size: 27px;
+    }
+    .index-subtitle {
+        font-size: 23px;
+    }
+}
